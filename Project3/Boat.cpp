@@ -1,11 +1,13 @@
 #include "Boat.h"
 #include <iostream>
 #include <string>
+#include <vector>
+#include <cstdlib>
 //Default contstructor
 
 using namespace std;
 
-Boat(char d, int lgth, vector<int> r, vector<int> c, int hit, string nme)
+Boat::Boat(char d, int lgth, vector<int> r, vector<int> c, int hit, string nme)
 {
     dir = d;
     length = lgth;
@@ -15,13 +17,17 @@ Boat(char d, int lgth, vector<int> r, vector<int> c, int hit, string nme)
     name = nme;
 }
 
+Boat::~Boat()
+{
+}
+
 //set boat hit
-void setHit()
+void Boat::setHit()
 {
     hits++;
 }
 
-int checkSunk(int BoatSize)
+int Boat::checkSunk(int BoatSize)
 {
     if (hits >= BoatSize)
     {
@@ -34,7 +40,7 @@ int checkSunk(int BoatSize)
 }
 
 //get boat playerGuess coordinates
-void boatCoordinates()
+void Boat::boatCoordinates()
 {
     cout << "Coordinates for boat " << name << endl << endl;
     for (int i = 0; i < length; i++)
@@ -45,7 +51,7 @@ void boatCoordinates()
 }
 
 //check coordinate bombed to find particular boat
-string getBoat(int r, int c)
+string Boat::getBoat(int r, int c)
 {
     for (int i = 0; i < length; i++)
     {

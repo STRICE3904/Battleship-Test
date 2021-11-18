@@ -1,3 +1,6 @@
+#include <vector>
+#include <string>
+
 class Boat
 {
 private:
@@ -12,6 +15,7 @@ private:
 public:
     //Default contstructor
     Boat(char d, int lgth, vector<int> r, vector<int> c, int hit, string nme);
+    ~Boat();
     //set boat hit
     void setHit();
     int checkSunk(int BoatSize);
