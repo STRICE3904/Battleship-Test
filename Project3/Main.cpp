@@ -26,7 +26,6 @@ int getSpace(int playerGuess[][10], int row, int col);
 
 int main()
 {
-    Boat;
     int playerGuess[10][10];
     int computerGuess[10][10];
     vector<Boat> boatListPlayer;
@@ -747,7 +746,7 @@ void editBoatInfo(int playerGuess[][10], int c, int r, int BoatSize, char d, vec
     }
 }
 
-void playGame(int playerGuess[][10], int computerGuess[][10], vector<Boat>& boatListPlayer, vector<Boat>& boatListComputer)
+void playGame(int playerGuess[][10], int computerGuess[][10], vector<Boat>& boatListPlayer)
 {
     bool gameInProgress = true;
     int row = 0;
