@@ -21,7 +21,7 @@ void editplayerGuess(int playerGuess[][10], int col, int row, int BoatSize, char
 bool setBoat(int computerGuess[][10], int BoatSize, int name, vector<Boat>& boatListPlayer);
 bool placeBoat(int playerGuess[][10], int BoatSize, int name, vector<Boat>& boatListPlayer);
 void editBoatInfo(int playerGuess[][10], int c, int r, int BoatSize, char d, vector<Boat>& boatListPlayer, int name);
-void playGame(int playerGuess[][10], int computerGuess[][10], vector<Boat>& boatListPlayer);
+void playGame(int playerGuess[][10], int computerGuess[][10], vector<Boat>& boatListPlayer, vector<Boat>& boatListComputer);
 int getSpace(int playerGuess[][10], int row, int col);
 
 int main()
@@ -746,7 +746,7 @@ void editBoatInfo(int playerGuess[][10], int c, int r, int BoatSize, char d, vec
     }
 }
 
-void playGame(int playerGuess[][10], int computerGuess[][10], vector<Boat>& boatListPlayer)
+void playGame(int playerGuess[][10], int computerGuess[][10], vector<Boat>& boatListPlayer, vector<Boat>& boatListComputer)
 {
     bool gameInProgress = true;
     int row = 0;
@@ -892,7 +892,7 @@ void playGame(int playerGuess[][10], int computerGuess[][10], vector<Boat>& boat
                     cout << "You have sunk Cruiser 1." << endl;
                 }
             }
-        
+
             btname.clear();
             break;
         case 3:
@@ -902,12 +902,12 @@ void playGame(int playerGuess[][10], int computerGuess[][10], vector<Boat>& boat
             btname = boatListComputer[2].getBoat(row, col);  //Check to see if boat is Destroyer 1
             if (btname == "Destroyer 1")
             {
-                 cout << "You have bombed " << btname << "!" << endl;
+                cout << "You have bombed " << btname << "!" << endl;
                 boatListComputer[2].setHit();
                 sunk = boatListComputer[2].checkSunk(Destroyer);
                 if (sunk == 9)
                 {
-                     cout << "You have sunk Destroyer 1." << endl;
+                    cout << "You have sunk Destroyer 1." << endl;
                 }
             }
             btname.clear();
@@ -937,7 +937,7 @@ void playGame(int playerGuess[][10], int computerGuess[][10], vector<Boat>& boat
             sunk = boatListComputer[0].checkSunk(Carrier);
             if (sunk == 9)
             {
-                 cout << "You have sunk the aircraft carrier." << endl;
+                cout << "You have sunk the aircraft carrier." << endl;
             }
             break;
         }//end of switch
